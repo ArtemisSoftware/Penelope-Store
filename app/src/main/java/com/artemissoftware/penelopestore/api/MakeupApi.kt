@@ -9,10 +9,10 @@ interface MakeupApi {
     @GET("products.json")
     suspend fun getAllProducts(): List<ProductDto>
 
-    @GET("get")
+    @GET("products.json")
     suspend fun getProductsByBrand(@Query("brand") brand: String): List<ProductDto>
 
-    @GET("get")
+    @GET("products.json")
     suspend fun getProductsByType(@Query("brand") brand: String, @Query("product_type") type: String): List<ProductDto>
 
 }

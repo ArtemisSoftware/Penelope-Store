@@ -1,6 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
 
 android {
     compileSdkVersion 30
@@ -33,6 +37,16 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+
+
+    implementation libraries.hilt
+    kapt libraries.hilt_compiler
+
+    implementation libraries.hilt_lifecycle_viewmodel
+    kapt libraries.hilt_lifecycle_viewmodel_compiler
+
 
 
     implementation libraries.retrofit
