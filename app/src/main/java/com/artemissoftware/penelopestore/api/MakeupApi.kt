@@ -15,4 +15,10 @@ interface MakeupApi {
     @GET("products.json")
     suspend fun getProductsByType(@Query("brand") brand: String, @Query("product_type") type: String): List<ProductDto>
 
+
+    companion object{
+
+        const val URL ="https://makeup-api.herokuapp.com/api/v1/"
+
+    }
 }
