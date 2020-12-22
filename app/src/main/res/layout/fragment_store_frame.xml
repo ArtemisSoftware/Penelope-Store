@@ -7,15 +7,15 @@
     android:background="@color/white"
     tools:context=".ui.frame.StoreFrameFragment">
 
-    <!--
+
     <include
         android:id="@+id/lnactionbar"
         layout="@layout/common_header_with_search"/>
--->
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        > <!-- android:layout_below="@+id/lnactionbar" -->
+        android:layout_below="@+id/lnactionbar">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
