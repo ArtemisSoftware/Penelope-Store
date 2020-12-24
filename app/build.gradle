@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -26,6 +27,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+    }
 }
 
 dependencies {
@@ -45,19 +56,19 @@ dependencies {
 
     implementation libraries.hilt
     kapt libraries.hilt_compiler
-
     implementation libraries.hilt_lifecycle_viewmodel
     kapt libraries.hilt_lifecycle_viewmodel_compiler
 
 
+    implementation libraries.lifecycle_viewmodel
+    implementation libraries.lifecycle_livedata
+    implementation libraries.lifecycle_common
 
     implementation libraries.retrofit
     implementation libraries.retrofit_converter_gson
 
-    // Lifecycle components
-    def archLifecycleVersion = "2.2.0"
-    // Lifecycle + ViewModel & LiveData
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
-    implementation "android.arch.lifecycle:common-java8:$archLifecycleVersion"
+    implementation libraries.navigation_fragment
+    implementation libraries.navigation_ui
+
+
 }

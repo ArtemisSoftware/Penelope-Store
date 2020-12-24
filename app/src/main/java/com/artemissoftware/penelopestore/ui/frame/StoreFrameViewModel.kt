@@ -4,14 +4,26 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.artemissoftware.penelopestore.api.models.ProductDto
 import com.artemissoftware.penelopestore.repositories.MakeupRepository
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StoreFrameViewModel @ViewModelInject constructor(private val makeupRepository: MakeupRepository) : ViewModel(){
 
 
     private val _products: MutableLiveData<List<ProductDto>> = MutableLiveData()
     val products: LiveData<List<ProductDto>> get() = _products
+
+    // The current _hint
+    val newReleases: LiveData<List<ProductDto>> = Transformations.map(_products) {
+
+        val objSDF = SimpleDateFormat("dd-mm-yyyy")
+        val dt_1: Date = objSDF.parse("01-09-2018")
+
+
+        it.filter { it.updatedAt.after(dt_1)  }
+    }
+
 
 
     init {
