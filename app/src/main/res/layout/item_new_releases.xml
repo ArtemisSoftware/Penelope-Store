@@ -20,7 +20,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cvCard"
@@ -39,10 +39,10 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/tvDesc"
+        android:id="@+id/txtBrand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
+        android:layout_below="@+id/txtName"
         android:layout_alignStart="@+id/cvCard"
         android:layout_alignEnd="@+id/cvCard"
         android:layout_centerHorizontal="true"
